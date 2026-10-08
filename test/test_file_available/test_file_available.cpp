@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-static const char* TEST_FILE = "./test_file_available.bin";
+static const char* TEST_FILE = "/test_file_available.bin";
 microStore::Adapters::UniversalFileSystem filesystem;
 
 // Create a file with known content (10 bytes) before each test
@@ -136,8 +136,8 @@ void test_available_platform_path() {
 
 void test_available_universal_path() {
 
-    static const char* WRITE_PATH = "./test_file.bin";
-    static const char* READ_PATH = "./test_file.bin";
+    static const char* WRITE_PATH = "/test_file.bin";
+    static const char* READ_PATH = "/test_file.bin";
 
     {
         microStore::File f = filesystem.open(WRITE_PATH, microStore::File::ModeReadAppend);
@@ -167,10 +167,10 @@ void test_available_mixed_path() {
 
 #ifdef ARDUINO
     static const char* WRITE_PATH = "/test_file.bin";
-    static const char* READ_PATH = "./test_file.bin";
+    static const char* READ_PATH = "/test_file.bin";
 #else
     static const char* WRITE_PATH = "test_file.bin";
-    static const char* READ_PATH = "./test_file.bin";
+    static const char* READ_PATH = "/test_file.bin";
 #endif
 
     {

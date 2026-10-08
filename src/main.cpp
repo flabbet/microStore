@@ -89,7 +89,7 @@ void setup() {
 		if (filesystem.init()) {
 			printf("size=%u available=%u\n", (uint32_t)filesystem.storageSize(), (uint32_t)filesystem.storageAvailable());
 			microStore::FileStore filestore;
-			if (filestore.init(filesystem, "./pfs_filestore")) {
+			if (filestore.init(filesystem, "/pfs_filestore")) {
 				printf("put: foo=bar\n");
 				filestore.put("foo", "bar");
 				std::string value;
@@ -118,7 +118,7 @@ void setup() {
 			//filesystem.format();
 			printf("size=%u available=%u\n", filesystem.storageSize(), filesystem.storageAvailable());
 			microStore::FileStore filestore;
-		    if (filestore.init(filesystem, "./ffs_typedstore")) {
+		    if (filestore.init(filesystem, "/ffs_typedstore")) {
 				microStore::TypedStore<std::string, std::string, microStore::FileStore> store(filestore);
 				printf("put: foo=bar\n");
 				store.put("foo", "bar");
@@ -139,7 +139,7 @@ void setup() {
 			//filesystem.format();
 			printf("size=%u available=%u\n", filesystem.storageSize(), filesystem.storageAvailable());
 			microStore::FileStore filestore;
-		    if (filestore.init(filesystem, "./sdfs_typedstore")) {
+		    if (filestore.init(filesystem, "/sdfs_typedstore")) {
 				microStore::TypedStore<std::string, std::string, microStore::FileStore> store(filestore);
 				printf("put: foo=bar\n");
 				store.put("foo", "bar");
@@ -160,7 +160,7 @@ void setup() {
 			//filesystem.format();
 			printf("size=%u available=%u\n", (uint32_t)filesystem.storageSize(), (uint32_t)filesystem.storageAvailable());
 			microStore::FileStore filestore;
-		    if (filestore.init(filesystem, "./ufs_typedstore")) {
+		    if (filestore.init(filesystem, "/ufs_typedstore")) {
 				microStore::TypedStore<std::string, std::string, microStore::FileStore> store(filestore);
 				printf("put: foo=bar\n");
 				store.put("foo", "bar");

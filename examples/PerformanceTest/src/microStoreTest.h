@@ -114,7 +114,7 @@ kvdb_err_t kvdb_init(bool clear = false) {
     if (clear) printf("Initializing store and clearing storage...\n");
     else printf("Initializing store...\n");
     store.set_max_recs(PATH_TABLE_MAX_RECS);
-	if (!store.init(filesystem, "./kvstress", clear)) {
+	if (!store.init(filesystem, "/kvstress", clear)) {
         printf("ERROR: Failed to initialize store\n");
         return KVDB_ERR_INIT;
     }
